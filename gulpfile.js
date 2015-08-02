@@ -1,8 +1,8 @@
 
 // -----------v 02.08.2015---------------------------------------------
-// npm install   / npm update —save-dev
-// gulp bower    / bower-update
-// gulp
+// run npm install   /  npm update —save-dev
+// run gulp bower    /  bower-update
+// run gulp
 // --------------------------------------------------------------------
 
 
@@ -30,9 +30,6 @@ var gulp        = require("gulp"),
     imagemin    = require("gulp-imagemin"),
     pngquant    = require("imagemin-pngquant");
 
-//    connect     = require('gulp-connect'),
-//    plumber     = require("gulp-plumber"),
-
 
 // --------------------------------------------------------------------
 // Settings
@@ -47,7 +44,7 @@ var paths = {
 
 
 // --------------------------------------------------------------------
-// Task: Bower
+// Task: Bower Components
 // --------------------------------------------------------------------
 
 gulp.task('bower', function() { 
@@ -71,7 +68,7 @@ gulp.task('templates', function() {
 
 
 // --------------------------------------------------------------------
-// Task: Html
+// Task: Html build
 // --------------------------------------------------------------------
 
 gulp.task('html', ['templates'], function() {
@@ -121,12 +118,12 @@ gulp.task('scripts', function() {
 
 
 // --------------------------------------------------------------------
-// Task: Images
+// Task: Compress Images
 // --------------------------------------------------------------------
 
 gulp.task('images', function() {
-  return gulp.src(paths.assets + '/images/**/*')
-    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+  return gulp.src(paths.assets + '/images/**/*.{gif,jpg,png}')
+    .pipe(cache(imagemin({ optimizationLevel: 4, progressive: true, interlaced: true })))
     .pipe(gulp.dest(paths.outputDev + '/images'))
     .pipe(gulp.dest(paths.outputDist + '/images'));
 });
