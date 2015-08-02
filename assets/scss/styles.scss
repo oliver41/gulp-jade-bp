@@ -1,0 +1,57 @@
+/* @import "../bower/normalize-scss/_normalize.scss"; */
+@import "vendors/normalize";
+
+@import "utils/variables";
+@import "utils/mixins";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', 'Helvetica';
+  color: #444;
+  font-size: 20px;
+}
+
+#container {
+  max-width: $max-width;
+  margin: 0px auto;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+//
+// styles for the box grid
+//
+
+$box-size: 90px;
+$box-colour: #bbb;
+$box-text-colour: white;
+$box-spacing: 10px;
+
+.boxes {
+  margin-top: 40px;
+  
+  & > div {
+    text-align: center;;
+    background-color: $blue;
+    width: $box-size;
+    height: $box-size;
+    color: $box-text-colour;
+    display: inline-block;
+    padding-top: 22px;
+    margin-right: $box-spacing;
+    margin-bottom: $box-spacing;
+    overflow: hidden;
+    font-weight: bold;
+  }
+
+  @for $i from 0 to 17 {
+    & > div:nth-child(#{$i}):before {
+      content: "box #{$i}";
+    }
+  }
+}

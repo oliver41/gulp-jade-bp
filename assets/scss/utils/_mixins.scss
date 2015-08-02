@@ -1,0 +1,103 @@
+
+/// Breakpoint Mixin
+/// http://sassbreak.com/flexible-media-query-mixins/
+
+@mixin breakpoint($point) {
+  @if $point == small {
+    @media (min-width: 24em) { @content; }
+  }
+  @else if $point == medium {
+    @media (min-width: 46.8em) { @content; }
+  }
+  @else if $point == large {
+    @media (min-width: 50em)  { @content; }
+  }
+}
+
+.element {
+  @include breakpoint(medium) {
+    
+  } 
+}
+
+//base font
+$bf: 16;
+
+@mixin bp($bp, $min-max: min-width) {
+  $em: $bp/$bf;
+  @media(#{$min-max}: #{$em}em) { @content; }
+}
+
+//including the mixin
+.element {
+  @include bp(600) {
+    
+  }
+}
+
+
+/// Breakpoint Mixin
+/// http://www.paulund.co.uk/media-query-sass-mixin
+
+@mixin mq($breakpoint) {
+
+  $mq-xs: "(max-width: 767px)";
+  $mq-sm: "(min-width: 768px) and (max-width: 991px)";
+  $mq-md: "(min-width: 992px) and (max-width: 1199px)";
+  $mq-lg: "(min-width: 1200px)";
+
+  @if $breakpoint == xs {
+    @media #{$mq-xs} { @content; }
+  }
+  @else if $breakpoint == sm {
+    @media #{$mq-sm} { @content; }
+  }
+  @else if $breakpoint == md {
+    @media #{$mq-md}  { @content; }
+  }
+  @else if $breakpoint == lg {
+    @media #{$mq-lg}  { @content; }
+  }
+}
+
+.content
+{
+    @include mq(xs) 
+    {
+        width: 100%;
+    }
+
+    @include mq(lg) 
+    {
+        width: 50%;
+    }
+}
+
+/// Vertical Align Mixin
+/// http://zurb.com/building-blocks/centered-footer
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/// Absolute Centering Mixin
+/// http://inspirationalpixels.com/tutorials/extends-and-mixins-for-sass
+
+@mixin absolute-center($top:auto, $left:auto) {
+    position:absolute;
+    top:$top;
+    left:$left;
+    transform:translate(-50%, -50%);
+}
+
+/// =========================
+// from TeamMixture simple-blog/assets/sass/_mixins.scss
+// =========================
+@mixin font-size($font-size){
+    font-size: $font-size;
+    font-size: ($font-size / $base-font-size)*1rem;
+    line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+}
+

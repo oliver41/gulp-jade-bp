@@ -1,0 +1,101 @@
+// =========================
+// colors
+// =========================
+
+$master-grey: #f0f0f0;
+
+// 3 shades of grey
+$master-l-10: mix(white, $master-grey, 10%);
+$master-d-10: mix(black, $master-grey, 10%);
+$master-d-15: mix(black, $master-grey, 15%);
+
+// font colors
+$font-base: mix(black, $master-grey, 50%);
+$font-dark: mix(black, $master-grey, 80%);
+$font-spot: #08c;
+
+/// Lovely blue
+/// @type Color
+$blue: #107FC9;
+
+/// Hot pink
+/// @type Color
+$pink: #FF4F72;
+
+/// Main color
+/// @type Color
+$main-color: $blue;
+
+/// Secondary color
+/// @type Color
+$secondary-color: $pink;
+
+/// Dark grey
+/// @type Color
+$dark-grey: #444;
+
+/// Medium grey
+/// @type Color
+$medium-grey: #AAA;
+
+/// Light grey
+/// @type Color
+$light-grey: #EEE;
+
+
+// =========================
+// Container max-width
+// =========================
+
+$max-width: 800px;
+
+
+// =========================
+// Breakpoints
+// =========================
+
+$breakpoints: (
+  'medium': (min-width: 600px)
+);
+
+
+// =========================
+// Font stack
+// =========================
+
+$text-font-stack: "Roboto", "Helvetica", "Arial", sans-serif;
+
+$code-font-stack: "Source Code Pro", "Courier New", monospace;
+
+// =========================
+// Components - Button
+// =========================
+
+$button-padding: 0.5rem 1rem;
+$Button-font-size: 12px;             // 1 factor below base 16px in modular type scale
+$button-bgcolor: #d9534f;     // the primary brand color
+$button-border-width: 1px;    // border width for all form inputs
+$button-color-hover: #fcfcfc; // the light/white brand color
+
+
+/// =========================
+// from TeamMixture simple-blog/assets/sass/_settings.scss
+// =========================
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Merriweather:400,700);
+
+$base-font-size:			15px!default;
+$base-line-height:		23px!default;
+
+$brand-face:					"Merriweather",sans-serif!default;
+$default-face:				"Lato",sans-serif!default;
+
+$bgrnd-color:					#F9F9F9!default;
+$default-font-color:	#333333!default;
+
+$base-spacing-unit:		$base-line-height!default;
+$half-spacing-unit:		$base-spacing-unit / 2!default;
+$line-height-ratio:		$base-line-height / $base-font-size;
+
+
+

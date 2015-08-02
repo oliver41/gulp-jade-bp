@@ -1,0 +1,65 @@
+include config
+
+doctype
+html( lang="en" )
+	head
+		title
+			block title
+				| #{PageTitle}
+		meta( charset='utf-8' )
+		meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+		meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+		//- Meta description drawn from config file
+		meta( name='description', content=MetaDesc )
+		
+		//- This will load Google Fonts, but only if font names are specified in the config
+		if GoogleFonts
+			link( href='//fonts.googleapis.com/css?family=' + GoogleFonts, rel='stylesheet', type='text/css' )
+		block stylesheets
+			link( href='css/styles.css', rel='stylesheet', type='text/css' )
+		//- This will load modernizr, but only if you switch it on in config
+		if modernizr
+			script( src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' )
+
+	body
+		nav
+			.wrapper
+				a.global-nav__header-tuts-logo-link(href="#")
+					img.global-nav__header-tuts-logo-image(alt="tuts+", src="img/tuts_logo.svg")
+				span.page-footer__tuts-brand-text
+					//- Header text here
+					block headertext
+						| Default Header!
+		section.wrapper
+			block content
+				| No content here so far
+
+
+		//- This will load jQuery, but only if you switch it on in config
+		if jQuery1
+			script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js' )
+			script.
+				window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2-min.js"><\/script>')
+		if jQuery2
+			script( src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js' )
+			script.
+				window.jQuery || document.write('<script src="js/vendor/jquery-2.1.3-min.js"><\/script>')
+		if jQueryVersion
+			script( src='//ajax.googleapis.com/ajax/libs/jquery/#{jQueryVersion}/jquery.min.js' )
+			script.
+				window.jQuery || document.write('<script src="js/vendor/jquery-#{jQueryVersion}-min.js"><\/script>')
+		if BsScripts
+			script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )
+		block scripts
+			script( src='js/app.js' )
+
+		//- This will load Google Analytics: change UA-XXXXX-X to be your site's ID.
+		if GoogleAnalytics
+			script.
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+				ga('create', '#{UACode}', 'auto');
+				ga('send', 'pageview');
