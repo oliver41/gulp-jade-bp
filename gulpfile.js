@@ -101,7 +101,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest(paths.outputDev + '/css'))
     .pipe(minify_css())
     .pipe(gulp.dest(paths.outputDist + '/css'))
-    .pipe(size())
+    .pipe(size({gzip: true}))
     .pipe(browserSync.reload({stream:true}));
 });
 

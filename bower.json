@@ -22,6 +22,7 @@
     "fontawesome": "~4.3.0",
     "normalize-scss": "~3.0.3",
     "susy": "~2.2.5",
-    "breakpoint-sass": "~2.5.0"
+    "breakpoint-sass": "~2.5.0",
+    "outline": "~1.1.0"
   }
 }
